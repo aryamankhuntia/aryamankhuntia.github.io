@@ -805,38 +805,64 @@
 
         // Project modal data
         const projectData = {
-            project1: {
-                title: '[Project 1 Title]',
-                image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&h=600',
-                overview: 'Detailed overview of your first project. Explain the problem it solves, the approach you took, and the impact it has. Include any challenges you overcame and what makes this project special.',
+            'doc-layout': {
+                title: 'Document Layout Understanding',
+                image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600',
+                overview: 'A multi-modal document analysis system designed to automate corporate data extraction. Achieved 91% accuracy while cutting down manual processing time by integrating LayoutLMv3, Detectron2, and Tesseract.',
                 features: [
-                    'Key feature 1 of your project',
-                    'Key feature 2 of your project',
-                    'Key feature 3 of your project',
-                    'Key feature 4 of your project',
-                    'Key feature 5 of your project'
+                    'Achieved 91% accuracy in cross-document entity extraction.',
+                    'Optimized LayoutLMv3 for identifying dates, amounts, and headers.',
+                    'Applied Detectron2 for table and field detection.',
+                    'Automated structural comprehension of scanned/complex documents.',
+                    'Significantly reduced corporate document extraction time.'
                 ],
-                technologies: ['React', 'Node.js', 'MongoDB', 'Express.js', 'Additional Tech'],
-                github: 'https://github.com/[yourusername]/[project1-repo]',
-                live: 'https://[your-project1-live-url].com'
+                technologies: ['LayoutLMv3', 'Detectron2', 'Tesseract', 'Python', 'NLP'],
+                github: 'https://github.com/[yourusername]/document-layout-understanding'
             },
-            project2: {
-                title: '[Project 2 Title]',
-                image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&h=600',
-                overview: 'Detailed overview of your second project. Explain the problem it solves, the approach you took, and the impact it has. Include any challenges you overcame and what makes this project special.',
+            'book-recommender': {
+                title: 'Book Recommender System',
+                image: 'https://images.unsplash.com/photo-1522206024047-9c925421675e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600',
+                overview: 'A collaborative filtering-based recommendation engine providing personalized book suggestions. Achieved 89% accuracy, deployed with Streamlit for real-time user interaction, and integrated AWS for scalability.',
                 features: [
-                    'Key feature 1 of your project',
-                    'Key feature 2 of your project',
-                    'Key feature 3 of your project',
-                    'Key feature 4 of your project',
-                    'Key feature 5 of your project'
+                    'Collaborative filtering engine analyzing user–book interactions.',
+                    'Achieved 89% accuracy in book recommendations.',
+                    'Streamlit app for real-time interactive suggestions.',
+                    'Optimized backend for faster search performance.',
+                    'AWS cloud integration for storage and deployment.'
                 ],
-                technologies: ['Technology 1', 'Technology 2', 'Technology 3', 'Additional Tech 1', 'Additional Tech 2'],
-                github: 'https://github.com/[yourusername]/[project2-repo]',
-                live: 'https://[your-project2-live-url].com'
+                technologies: ['Python', 'Streamlit', 'AWS', 'Pandas', 'Scikit-learn'],
+                github: 'https://github.com/[yourusername]/book-recommender'
+            },
+            'transformer-block': {
+                title: 'Minimal Encoder-Decoder Transformer',
+                image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600',
+                overview: 'An educational implementation of a minimal encoder-decoder Transformer from scratch in PyTorch. Trained on a toy copy task to demonstrate Transformer internals, achieving 98% sequence reproduction accuracy.',
+                features: [
+                    'Implemented attention + MLP blocks from scratch.',
+                    'Achieved 98% sequence reproduction accuracy on a copy task.',
+                    'Documented modular class implementations for clarity.',
+                    'Training loss plots included for visualization.',
+                    'Serves as an educational resource for learning Transformer internals.'
+                ],
+                technologies: ['PyTorch', 'Deep Learning', 'NLP', 'Python'],
+                github: 'https://github.com/[yourusername]/minimal-transformer-block'
+            },
+            'laptop-price': {
+                title: 'Laptop Price Predictor',
+                image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600',
+                overview: 'A regression-based machine learning model that predicts laptop prices from specifications. Fully deployed on an AWS EC2 instance with a custom raw-coded frontend and backend for a seamless end-to-end experience.',
+                features: [
+                    'Regression model trained on real-world laptop data.',
+                    'Predicts price from specifications (RAM, CPU, storage, GPU, etc.).',
+                    'Frontend and backend written from scratch (raw code).',
+                    'Deployed on AWS EC2 for scalable access.',
+                    'End-to-end deployment pipeline from training to production.'
+                ],
+                technologies: ['Regression', 'AWS EC2', 'Flask', 'HTML/CSS/JS', 'Python'],
+                github: 'https://github.com/[yourusername]/laptop-price-predictor'
             }
         };
-
+        
         // Modal functions
         function openModal(projectId) {
             const project = projectData[projectId];
@@ -867,29 +893,27 @@
                     <a href="${project.github}" target="_blank" class="btn btn-secondary">
                         <i class="fab fa-github"></i> View Code
                     </a>
-                    <a href="${project.live}" target="_blank" class="btn btn-primary">
-                        <i class="fas fa-external-link-alt"></i> Live Demo
-                    </a>
                 </div>
             `;
             
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
-
+        
         function closeModal(event) {
             if (!event || event.target === document.getElementById('modal')) {
                 document.getElementById('modal').classList.remove('active');
                 document.body.style.overflow = 'auto';
             }
         }
-
+        
         // Close modal with Escape key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeModal();
             }
         });
+
     </script>
 </body>
 </html>
